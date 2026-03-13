@@ -1,0 +1,13 @@
+{
+  "name": "leaf-generator",
+  "version": "2.0.0",
+  "description": "LEAF Viral Content Generator — powered by Groq AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

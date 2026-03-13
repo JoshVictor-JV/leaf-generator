@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEAF Generator — Viral Content Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-leaf">LEAF</span>
+    <span class="logo-sub">Content Generator</span>
+  </div>
+  <span class="model-badge">Groq · llama3-70b</span>
+</header>
+
+<div class="app">
+
+  <!-- INPUT PANEL -->
+  <aside class="input-panel">
+    <div class="panel-title">Input Parameters</div>
+
+    <div class="field-group">
+      <label for="idea">Content Idea / Message</label>
+      <textarea id="idea" placeholder="e.g. Most people quit too early. Discipline is the bridge between goals and results..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label for="tone">Tone</label>
+      <select id="tone">
+        <option>Motivational</option>
+        <option>Leadership</option>
+        <option>Faith</option>
+        <option>Discipline</option>
+        <option>Storytelling</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="scriptStyle">Script Style</label>
+      <select id="scriptStyle">
+        <option>Talking Head</option>
+        <option>Story</option>
+        <option>Skit</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="numVideos">Number of Videos</label>
+      <input type="number" id="numVideos" value="3" min="1" max="10" />
+    </div>
+
+    <button class="generate-btn" id="generateBtn" onclick="generate()">
+      <span class="btn-icon">🌿</span> Generate Content
+    </button>
+
+    <div class="hint">Ctrl+Enter to generate</div>
+  </aside>
+
+  <!-- OUTPUT PANEL -->
+  <main class="output-panel" id="outputPanel">
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-leaf">🌿</div>
+      <div class="empty-title">LEAF Generator</div>
+      <div class="empty-text">Enter your content idea and press Generate to create viral short-form video content using Hook Point methodology</div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="spinner"></div>
+      <div class="loading-text">Generating Content</div>
+      <div class="loading-sub">Groq AI is crafting your hooks, scripts, and captions.<br>Usually takes 5–15 seconds.</div>
+    </div>
+
+    <div class="error-box" id="errorBox"></div>
+
+    <div id="results" style="display:none;">
+      <div class="section-tabs" id="sectionTabs"></div>
+      <div id="sectionsContainer"></div>
+    </div>
+
+  </main>
+</div>
+
+<div class="status-bar">
+  <div class="status-dot" id="statusDot"></div>
+  <span id="statusText">Ready — Enter an idea to begin</span>
+  <span class="status-right">LEAF v2.0 · Groq</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
