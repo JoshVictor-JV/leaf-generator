@@ -13,8 +13,26 @@
     <span class="logo-leaf">LEAF</span>
     <span class="logo-sub">Content Generator</span>
   </div>
-  <span class="model-badge">Groq · llama3-70b</span>
+  <div class="header-right">
+    <button class="history-toggle-btn" onclick="toggleHistory()">📋 History <span id="historyCount" class="history-count">0</span></button>
+    <span class="model-badge">Groq · llama3-70b</span>
+  </div>
 </header>
+
+<!-- HISTORY DRAWER -->
+<div class="history-drawer" id="historyDrawer">
+  <div class="history-header">
+    <span class="history-title">Generation History</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button class="clear-history-btn" onclick="clearHistory()">Clear All</button>
+      <button class="close-drawer-btn" onclick="toggleHistory()">✕</button>
+    </div>
+  </div>
+  <div class="history-list" id="historyList">
+    <div class="history-empty">No history yet. Generate some content first.</div>
+  </div>
+</div>
+<div class="history-backdrop" id="historyBackdrop" onclick="toggleHistory()"></div>
 
 <div class="app">
 
@@ -77,7 +95,10 @@
     <div class="error-box" id="errorBox"></div>
 
     <div id="results" style="display:none;">
-      <div class="section-tabs" id="sectionTabs"></div>
+      <div class="results-topbar">
+        <div class="section-tabs" id="sectionTabs"></div>
+        <button class="copy-all-btn" id="copyAllBtn" onclick="copyAll()">📋 Copy All</button>
+      </div>
       <div id="sectionsContainer"></div>
     </div>
 
